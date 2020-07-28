@@ -1,0 +1,21 @@
+language: go
+
+go:
+  - "1.14.x"
+install:
+  - go get github.com/stretchr/testify/assert
+
+env:
+  global:
+    - GO_REPO_FULLNAME="github.com/zeyit/iyzipay-go"
+before_install:
+   # link the local repo with ${GOPATH}/src/<namespace>/<repo>
+ - GO_REPO_NAMESPACE=${GO_REPO_FULLNAME%/*}
+   # relies on GOPATH to contain only one directory...
+ - mkdir -p ${GOPATH}/src/${GO_REPO_NAMESPACE}
+ - ln -sv ${TRAVIS_BUILD_DIR} ${GOPATH}/src/${GO_REPO_FULLNAME}
+ - cd ${GOPATH}/src/${GO_REPO_FULLNAME}
+
+script:
+  - go test -v ./...
+  - go build 
