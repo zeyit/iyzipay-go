@@ -3,8 +3,8 @@ package model
 type PaymentResource struct {
 	*IyzipayResource
 
-	Price                        string `json:"price,omitempty"`
-	PaidPrice                    string `json:"paidPrice,omitempty"`
+	Price                        int    `json:"price,omitempty"`
+	PaidPrice                    int    `json:"paidPrice,omitempty"`
 	Installment                  *int   `json:"installment,omitempty"`
 	Currency                     string `json:"currency,omitempty"`
 	PaymentId                    string `json:"paymentId,omitempty"`

@@ -27,8 +27,6 @@ func getHeaders(request cnt.RequestStringConvertible, options *Options) map[stri
 	randomString = strings.Replace(randomString, "-", "", 6)
 	headers := make(map[string]string)
 
-	randomString = "280720201039190019"
-
 	headers["Accept"] = "application/json"
 	headers["Content-Type"] = "application/json; charset=utf-16"
 	headers[random_header_name] = randomString
