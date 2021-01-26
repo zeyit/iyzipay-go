@@ -89,7 +89,7 @@ func (b *StrRequestBuilder) AppendList(key string, value interface{}) IStrReques
 				appendedValue = append(appendedValue, strconv.FormatInt(int64(val), 10))
 			}
 		}
-		b.appendKeyValue(key, "["+strings.Join(appendedValue, ",")+"]")
+		b.appendKeyValue(key, "["+strings.Join(appendedValue, ", ")+"]")
 	}
 	return b
 }

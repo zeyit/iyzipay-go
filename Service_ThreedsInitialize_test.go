@@ -29,8 +29,8 @@ func TestThreedsInitialize(t *testing.T) {
 
 	req.Locale = LocaleTR
 	req.ConversationId = "16"
-	req.Price = "68.00"
-	req.PaidPrice = "68.00"
+	req.Price = "69.00"
+	req.PaidPrice = "69.00"
 	req.Currency = CurrencyTRY
 	req.BasketId = "16"
 	req.BasketId = "16"
@@ -71,7 +71,14 @@ func TestThreedsInitialize(t *testing.T) {
 	basketItem.Category1 = "Kadın"
 	basketItem.ItemType = "PHYSICAL"
 	basketItem.Price = "68.00"
-	req.BasketItems = append(req.BasketItems, basketItem)
+
+	basketItem2 := NewBasketItem()
+	basketItem2.Id = "19"
+	basketItem2.Name = "Pure Pineapple2"
+	basketItem2.Category1 = "Kadın"
+	basketItem2.ItemType = "PHYSICAL"
+	basketItem2.Price = "1.00"
+	req.BasketItems = append(req.BasketItems, basketItem, basketItem2)
 
 	threedsInitialize, _ := NewService().ThreedsInitialize(req, options)
 	PrintResponse(threedsInitialize)
